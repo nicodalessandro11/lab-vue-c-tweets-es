@@ -1,12 +1,22 @@
 <template>
   <div class="app">
-    <Tweet />
+    <Tweet 
+    v-for="(tweet, index) in tweets"
+    :key="index"
+    :tweet="tweet" 
+    :imageChild="tweet.user.image" 
+    :imageAltChild="tweet.user.image"
+    :userNameChild="tweet.user.name"
+    :userHandleChild="tweet.user.handle"
+    :timestampChild="tweet.timestamp"
+    :messageChild="tweet.message"/>
   </div>
 </template>
 
 <script setup>
   import { ref } from 'vue';
   import Tweet from './components/Tweet.vue';
+
 
   const tweets = ref([
     {
